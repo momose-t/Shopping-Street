@@ -1,0 +1,42 @@
+
+<div><%= devise_error_messages %></div>
+
+<h2>Sign up</h2>
+<div>店主新規登録用</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <div class="field form-group">
+    <%= f.label :name %><br />
+    <div><%= f.text_field :name, autofocus: true, required: true, autocomplete: "name", placeholder: '百瀬　月那' %></div>
+  </div>
+  <div class="field">
+    <%= f.label :name_kana %><br />
+    <%= f.text_field :name_kana, autofocus: true, required: true, autocomplete: "name_kana", placeholder: 'モモセ　ツキナ' %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, required: true, autocomplete: "nickname", placeholder: 'タッキー' %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true,  required: true, autocomplete: "email" %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "owners/shared/links" %>
