@@ -7,12 +7,12 @@
 	<div><%= @store.good %></div>
 	<div><%= @store.introduction %></div>
 </div>
-
+<!-- 店主の投稿一覧 -->
 	<div class="post-box">
 		<% @posts.each do |post|%>
 		<div class="post-item">
-			<%= attachment_image_tag post, :image, :fill,150,200,fallback:"no_image.jpg",size:'150x200'%>
-			<%= post.comment %>
+			<div><%= attachment_image_tag post, :image, :fill,500,300,fallback:"no_image.jpg",size:'500x300'%></div>
+			<span><%= post.comment %></span>
 		</div>
 		<% end %>
 	</div>
