@@ -8,6 +8,9 @@ class StoresController < ApplicationController
 
   def show
   	@store = Store.find(params[:id])
+  	@posts = Post.where(store_id: @store.id)
+  	# @posts = Post.all
+
   end
 
   def edit
