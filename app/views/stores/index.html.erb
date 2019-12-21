@@ -1,0 +1,15 @@
+<h1>Stores#index</h1>
+<p>店主一覧はこちらトップページね</p>
+
+<section class="store-main">
+	<div class="store-row">
+			<% @stores.each do |store| %>
+			<div class="store-item">
+				<div><%= attachment_image_tag store, :image,:fill,150,150, fallback: "no_image.jpg",size:'150x150' %></div>
+				<div><%= store.store_name %></div>
+				<div><%= store.good %></div>
+				<div><%= store.introduction %></div>
+				<div><%= link_to '詳細へ', store_path(store) %></div>
+			</div>
+			<% end %>
+	</div>

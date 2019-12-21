@@ -1,0 +1,50 @@
+<!-- 客がログインしているか -->
+    <% if customer_signed_in? %>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid block">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="collapse navbar-collapse list1" id="bs-example-navbar-collapse-2">
+              <ul class="nav navbar-nav">
+                <li><%= link_to 'top', root_path %></li>
+                <li><%= link_to 'マイページ', root_path %></li>
+                <li><%= link_to 'お気に入り', root_path %></li>
+                <li><%= link_to 'メッセージ', conversations_path %></li>
+                <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete  %></li>
+              </ul>
+            </div>
+            <div><%= "#{current_customer.nickname}" %>さま</div>
+          </div>
+        </nav>
+<!-- 店主がログインしてるか -->
+    <% elsif owner_signed_in? %>
+		<nav>
+              <ul class="cc nav navbar-nav">
+                <li><%= link_to 'top', root_path %></li>
+                <li><%= link_to 'マイページ', root_path %></li>
+                <li><%= link_to '投稿', root_path %></li>
+                <li><%= link_to 'メッセージ', conversations_path %></li>
+                <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete  %></li>
+                <li><%= "#{current_owner.name}" %>さま</li>
+              </ul>
+		</nav>
+
+<!-- どちらもログインしていない -->
+	<% else %>
+		<nav>
+              <ul class="nav navbar-nav">
+                <li><%= link_to 'ABOUT', root_path %></li>
+                <li><%= link_to 'ユーザー新規登録', new_customer_registration_path %></li>
+                <li><%= link_to 'ユーザーログイン', new_customer_session_path %></li>
+                <li><%= link_to '店主新規登録', new_owner_registration_path %></li>
+                <li><%= link_to '店主ログイン', new_owner_session_path %></li>
+              </ul>
+		</nav>
+    <% end %>

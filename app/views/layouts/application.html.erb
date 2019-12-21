@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <li><%= link_to 'ログアウト',destroy_owner_session_path, method: :delete  %></li>
+    <%= render 'share/header' %>
     <%= yield %>
   </body>
 </html>

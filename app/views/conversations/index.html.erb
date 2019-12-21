@@ -1,0 +1,41 @@
+<h1>Conversations#index</h1>
+
+<p>メッセージ一覧</p>
+<% if flash[:notice]%>
+<P><%= flash[:notice]%></P>
+<% end %>
+
+	<!-- 店主が郎虞インしている場合 -->
+	<% if owner_signed_in? %>
+		<% @conversations.each do |conversation|%>
+			<!-- # 相手とのチャットルームを持っているのかの確認 -->
+			<!-- # もしConversationのなかに相手とのチャットルームを持っていたら -->
+			<% if @customer_ids.include?(conversation.customer_id) %>
+				<div class="message-item"><%= conversation.customer.nickname %>
+				<%= link_to 'メッセージする',new_conversation_message_path(conversation) %></div>
+			<!-- 持っていなかったらconversationの中にowner_idとcustomer_idを入れる -->
+			<% else %>
+			    <%= form_for Conversation.new do |f| %>
+			    	<%= f.hidden_field :customer_id, :value => customer.id %>
+			        <%= f.submit %>
+			    <% end %>
+			<% end %>
+		<% end %>
+
+	<!-- 客がログインしている場合 -->
+	<% else customer_signed_in? %>
+		<% @conversations.each do |conversation|%>
+			<!-- # 相手とのチャットルームを持っているのかの確認 -->
+			<!-- # もしConversationのなかに相手とのチャットルームを持っていたら -->
+			<% if @owner_ids.include?(conversation.owner_id) %>
+				<div class="message-item"><%= conversation.owner.nickname %>
+				<%= link_to 'メッセージする',new_conversation_message_path(conversation) %></div>
+			<!-- 持っていなかったらconversationの中にowner_idとcustomer_idを入れる -->
+			<% else %>
+			    <%= form_for Conversation.new do |f| %>
+			    	<%= f.hidden_field :owner_id, :value => owner.id %>
+			        <%= f.submit %>
+			    <% end %>
+			<% end %>
+		<% end %>
+	<% end %>
