@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   get 'messages/new'
-  get 'posts/new'
-  get 'posts/show'
 # トップページ
 root to: 'stores#index'
+# 投稿
 #客
   devise_for :customers, :controllers => {
   	:registrations => 'customers/registrations',
@@ -18,7 +17,9 @@ root to: 'stores#index'
   }
 
 #紹介
-  resources :stores
+  resources :stores do
+    resources :posts, :only => [:new, :show, :create, :destroy]
+  end
 # メッセージ機能
   resources :conversations, :only => [:new, :index, :create] do
     resources :messages, :only => [:new, :create]

@@ -1,0 +1,12 @@
+<h1>Posts#new</h1>
+<p>投稿の追加</p>
+ <% if flash[:notice] %>
+ <%= flash[:notice] %>
+ <% end %>
+
+<!-- 投稿作成 -->
+<%= form_for @post, url: store_posts_path do |f| %>
+<%= f.attachment_field :image %>
+<%= f.text_field :comment %>
+<%= f.submit "投稿" %>
+<% end %>
