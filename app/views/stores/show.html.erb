@@ -7,3 +7,12 @@
 	<div><%= @store.good %></div>
 	<div><%= @store.introduction %></div>
 </div>
+
+	<div class="post-box">
+		<% @posts.each do |post|%>
+		<div class="post-item">
+			<%= attachment_image_tag post, :image, :fill,150,200,fallback:"no_image.jpg",size:'150x200'%>
+			<%= post.comment %>
+		</div>
+		<% end %>
+	</div>
