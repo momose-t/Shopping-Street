@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'messages/new'
   get 'posts/new'
   get 'posts/show'
+# トップページ
+root to: 'stores#index'
 #客
   devise_for :customers, :controllers => {
   	:registrations => 'customers/registrations',
@@ -15,10 +18,10 @@ Rails.application.routes.draw do
   }
 
 #紹介
-	resources :introductions
-# message
-  resources :owner_message, only: [:new, :index, :destroy, :create]
-  resources :customer_message, only: [:new, :index, :destroy, :create]
-  resources :posts, only: [:new, :show, :update, :create, :destroy]
+  resources :stores
+# メッセージ機能
+  resources :conversations, :only => [:new, :index, :create] do
+    resources :messages, :only => [:new, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

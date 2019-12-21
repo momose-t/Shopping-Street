@@ -1,0 +1,35 @@
+<h1>Messages#new</h1>
+<p>メッセージのやりとり</p>
+
+<!-- やりとりしているメッセージの一覧 -->
+<!-- ownerがログインしていたら -->
+<% if owner_signed_in? %>
+<%= @conversation.customer.nickname %>
+	<% @messages.each do |m| %>
+		<% if m.is_customer %>
+			<div class="left-side message-item"><%= m.message %></div>
+		<% else %>
+			<div class="right-side message-item"><%= m.message %></div>
+		<% end %>
+	<% end %>
+<% end %>
+
+<!-- customerがログインしていたら -->
+<% if customer_signed_in? %>
+<%= @conversations.owner.nickname %>
+	<% @messages.each do |m| %>
+		<% if m.is_customer %>
+			<div class="right-side message-item"><%= m.message %></div>
+		<% else %>
+			<div class="left-side message-item"><%= m.message %></div>
+		<% end %>
+	<% end %>
+<% end %>
+
+
+
+<!-- メッセージ作成 -->
+<%= form_for @conversation.messages.new , url: conversation_messages_path do |f| %>
+<%= f.text_field :message %>
+<%= f.submit "送信" %>
+<% end %>

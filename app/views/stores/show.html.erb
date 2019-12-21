@@ -1,0 +1,9 @@
+<h1>Stores#show</h1>
+<p>お店の詳細紹介</p>
+
+<div class="store-show">
+	<div><%= attachment_image_tag @store, :image,:fill,400,400, fallback: "no_image.jpg",size:'400x400' %></div>
+	<div><%= @store.store_name %></div>
+	<div><%= @store.good %></div>
+	<div><%= @store.introduction %></div>
+</div>

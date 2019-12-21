@@ -1,0 +1,25 @@
+// Place all the styles related to the stores controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.store-row{
+	flex-wrap: wrap;
+	width: 100%;
+	display: flex;
+}
+.store-item{
+	background-color: #e6cde3;
+	flex-basis: 50%;
+	margin-top: 10px;
+	text-align: center;
+}
+.store-item:nth-child(2n){
+	background-color: #eebbcb;
+	margin-top: 50px;
+	justify-content: flex-end;
+}
+.store-show{
+	background-color: #c1e4e9;
+	text-align: center;
+}

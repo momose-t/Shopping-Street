@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_12_18_070221) do
   create_table "messages", force: :cascade do |t|
     t.integer "conversation_id"
     t.string "message"
+    t.boolean "is_customer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
