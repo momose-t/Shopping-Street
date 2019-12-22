@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'messages/new'
 # トップページ
 root to: 'stores#index'
 # 投稿
@@ -21,8 +20,8 @@ root to: 'stores#index'
     resources :posts, :only => [:new, :show, :create, :destroy]
   end
 # メッセージ機能
-  resources :conversations, :only => [:new, :index, :create] do
-    resources :messages, :only => [:new, :create]
+  resources :conversations, :only => [:new, :index, :create, :show] do
+    resources :messages, :only => [:create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

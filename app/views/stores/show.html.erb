@@ -6,6 +6,13 @@
 	<div><%= @store.store_name %></div>
 	<div><%= @store.good %></div>
 	<div><%= @store.introduction %></div>
+	<% if customer_signed_in? %>
+		<!-- ownerのidがほしい -->
+		<%= form_tag("/conversations", method: "post") do %> <!-- conversation create にデータを送る -->
+		<%= hidden_field_tag :owner_id, @store.owner.id%><!-- 使用者には見えないデータ（ここでいう@store.owner.idをowner_id → 名前はなんでもいい）を送る　 -->
+		<%= submit_tag("メールする")%>
+		<% end %>
+	<% end %>
 </div>
 <!-- 店主の投稿一覧 -->
 	<div class="post-box">
