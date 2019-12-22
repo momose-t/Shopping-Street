@@ -1,15 +1,4 @@
 class MessagesController < ApplicationController
-  def new
-    if customer_signed_in?
-        @conversation = Conversation.find(params[:conversation_id])
-        @conversations = current_customer.conversations
-        @messages = Message.where(conversation_id: @conversation.id)
-    elsif owner_signed_in?
-        @conversation = Conversation.find(params[:conversation_id])
-        @conversations = current_owner.conversations
-        @messages = Message.where(conversation_id: @conversation.id)
-    end
-  end
 
   def create
     @conversation = Conversation.find(params[:conversation_id])
@@ -28,9 +17,9 @@ class MessagesController < ApplicationController
 
     # メッセージの保存
     if @message.save
-      redirect_to new_conversation_message_path(@conversation.id)
+      redirect_to conversation_path(@conversation.id)
     else
-      redirect_to nconversations_path(@conversation.id)
+      redirect_to conversations_path(@conversation.id)
     end
   end
 

@@ -16,6 +16,7 @@
 
 @import 'messages';
 @import 'stores';
+@import 'conversation';
 .bb{
 	background-color: lightblue;
 	width: 100%;
