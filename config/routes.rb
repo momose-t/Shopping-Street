@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'starts/about'
+  get 'starts/concept'
+  get 'starts/explain'
 # トップページ
 root to: 'stores#index'
 # 投稿

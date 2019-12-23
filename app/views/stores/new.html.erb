@@ -1,2 +1,27 @@
 <h1>Stores#new</h1>
-<p>Find me in app/views/stores/new.html.erb</p>
+<p>お店の情報作成ページ</p>
+
+<%= form_for @store, url: stores_path do |f| %>
+	<p>お店の名前</p>
+	<%= f.text_field :store_name %>
+	<p>お店の郵便番号</p>
+	<%= f.text_field :store_postal_cade %>
+	<p>お店の都道府県</p>
+	<%= f.text_field :store_prefecture_code %>
+	<p>お店の市町村</p>
+	<%= f.text_field :store_city %>
+	<p>お店の番地</p>
+	<%= f.text_field :store_building %>
+	<p>お店の電話番号</p>
+	<%= f.text_field :store_phone_number %>
+	<p>お店のカテゴリー</p>
+	<%= f.text_field :store_category %>
+	<p>お店のお取り扱いもの</p>
+	<%= f.text_field :good %>
+	<p>店主様の顔写真</p>
+	<%= f.attachment_field :image %>
+	<p>お店のアピール紹介</p>
+	<%= f.text_area :introduction %>
+	<%= f.submit "作成" %>
+<% end %>
+

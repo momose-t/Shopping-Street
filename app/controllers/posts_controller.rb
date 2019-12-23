@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def new
   	@post = Post.new
+    if owner_signed_in?
+      @owner = Owner.find(current_owner.id)
+    end
+    #binding.pry
   end
   def create
   	post = Post.new(post_params)

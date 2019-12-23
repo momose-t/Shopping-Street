@@ -59,4 +59,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def account_update_params
+    devise_parameter_sanitizer.sanitize(:account_update)
+  end
 end

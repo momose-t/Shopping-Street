@@ -1,5 +1,5 @@
 <!-- 客がログインしているか -->
-    <% if customer_signed_in? %>
+<% if customer_signed_in? %>
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container-fluid block">
             <div class="navbar-header">
@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse list1" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav">
                 <li><%= link_to 'top', root_path %></li>
-                <li><%= link_to 'マイページ', root_path %></li>
+                <li><%= link_to 'マイページ', edit_customer_registration_path %></li>
                 <li><%= link_to 'お気に入り', root_path %></li>
                 <li><%= link_to 'メッセージ', conversations_path %></li>
                 <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete  %></li>
@@ -24,12 +24,14 @@
           </div>
         </nav>
 <!-- 店主がログインしてるか -->
-    <% elsif owner_signed_in? %>
+<% elsif owner_signed_in? %>
 		<nav>
               <ul class="cc nav navbar-nav">
                 <li><%= link_to 'top', root_path %></li>
-                <li><%= link_to 'マイページ', root_path %></li>
-                <li><%= link_to '投稿', root_path %></li>
+                <li><%= link_to 'マイページ', edit_owner_registration_path %></li>
+<% if @owner.stores.present? %>
+                <li><%= link_to '投稿', new_store_post_path(@owner.stores.first.id) %></li>
+<% end %>
                 <li><%= link_to 'メッセージ', conversations_path %></li>
                 <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete  %></li>
                 <li><%= "#{current_owner.name}" %>さま</li>
@@ -37,14 +39,18 @@
 		</nav>
 
 <!-- どちらもログインしていない -->
-	<% else %>
+<% else %>
 		<nav>
               <ul class="nav navbar-nav">
-                <li><%= link_to 'ABOUT', root_path %></li>
+                <li><%= link_to 'ABOUT', starts_about_path %></li>
+                <li><%= link_to 'TOP', root_path %></li>
                 <li><%= link_to 'ユーザー新規登録', new_customer_registration_path %></li>
                 <li><%= link_to 'ユーザーログイン', new_customer_session_path %></li>
                 <li><%= link_to '店主新規登録', new_owner_registration_path %></li>
                 <li><%= link_to '店主ログイン', new_owner_session_path %></li>
               </ul>
 		</nav>
-    <% end %>
+<% end %>
+<%#= @owner.stores.store_name %>
+<%#= @owner.stores.first.store_name %>
+<%#= current_owner.store.inspect %>
