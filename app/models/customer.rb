@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :conversations
   has_many :favorites
+  attachment :image
 end

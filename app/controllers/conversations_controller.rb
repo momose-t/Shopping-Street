@@ -27,6 +27,7 @@ class ConversationsController < ApplicationController
         @messages = Message.where(conversation_id: @conversation.id)
         # @conversations = current_customer.conversations
     elsif owner_signed_in?
+        @owner = Owner.find(current_owner.id)
         @conversation = Conversation.find(params[:id])
         @messages = Message.where(conversation_id: @conversation.id)
     end
@@ -34,6 +35,7 @@ class ConversationsController < ApplicationController
 
   def index
 	  	if owner_signed_in?
+        @owner = Owner.find(current_owner.id)
 	  		@conversations = Conversation.where(owner_id: current_owner.id)
 	        # 自分が入っているconversationの相手のidを格納
 	        @customer_ids = []
