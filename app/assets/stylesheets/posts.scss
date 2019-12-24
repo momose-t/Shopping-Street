@@ -1,3 +1,31 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-main{
+	background-color: #c8c1bc;
+	height: 900px;
+	display: flex;
+}
+.post-box-new{
+	background-color: #f9f7f0;
+	text-align: center;
+	width: 360px;
+	height: 310px;
+	margin:100px auto;
+}
+.post-box-new{
+input[type="text"] {
+        width: 360px;
+        height: 100px;
+    }
+input[type="submit"] {
+        width: 100px;
+        height: 40px;
+        border-style: solid;
+        color: #79797a;
+        background-color: #f5f5f5;
+        border-radius: 15px;
+        margin-top: 50px;
+}
+}

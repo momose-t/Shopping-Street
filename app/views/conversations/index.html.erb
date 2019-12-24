@@ -1,13 +1,13 @@
-<h1>Conversations#index</h1>
 
-<p>メッセージ一覧</p>
-
+<div class="message-main">
+	<div class="message-box">
 	<!-- 店主が郎虞インしている場合 -->
 	<% if owner_signed_in? %>
+	<div class="conversation-label">ユーザー</div>
 		<% @conversations.each do |conversation|%>
 			<% if @customer_ids.include?(conversation.customer_id) %>
-				<div class="message-item"><%= conversation.customer.nickname %>
-				<%= link_to 'メッセージする',conversation_path(conversation) %></div>
+				<div class="conversation-item"><%= conversation.customer.nickname %>
+				<%= link_to 'メッセージする',conversation_path(conversation), class: 'link_color_message' %></div>
 			<% end %>
 		<% end %>
 
@@ -15,8 +15,10 @@
 	<% else customer_signed_in? %>
 		<% @conversation.each do |conversation|%>
 			<% if @owner_ids.include?(conversation.owner_id) %>
-				<div class="message-item"><%= conversation.owner.nickname %>
-				<%= link_to 'メッセージする',conversation_path(conversation) %></div>
+				<div class="conversation-item"><%= conversation.owner.nickname %>
+				<%= link_to 'メッセージする',conversation_path(conversation), class: 'link_color_message' %></div>
 			<% end %>
 		<% end %>
 	<% end %>
+	</div>
+</div>

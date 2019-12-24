@@ -1,23 +1,11 @@
 <!-- 客がログインしているか -->
 <% if customer_signed_in? %>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container-fluid block">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-
-            <div class="collapse navbar-collapse list1" id="bs-example-navbar-collapse-2">
+        <nav class="navbar navbar-inverse nav.sticky-top">
               <ul class="nav navbar-nav">
-                <li><%= link_to 'top', root_path %></li>
-                <li><%= link_to 'マイページ', edit_customer_registration_path %></li>
-                <li><%= link_to 'お気に入り', root_path %></li>
-                <li><%= link_to 'メッセージ', conversations_path %></li>
-                <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete  %></li>
+                <div class="logo"><li><%= link_to 'JapanStreet', root_path, class: 'link_color' %></li></div>
+                <li><%= link_to 'マイページ', edit_customer_registration_path, class: 'link_color' %></li>
+                <li><%= link_to 'メッセージ', conversations_path, class: 'link_color' %></li>
+                <li><%= link_to 'ログアウト', destroy_customer_session_path, class: 'link_color', method: :delete  %></li>
               </ul>
             </div>
             <div><%= "#{current_customer.nickname}" %>さま</div>
@@ -26,30 +14,36 @@
 <!-- 店主がログインしてるか -->
 <% elsif owner_signed_in? %>
 		<nav>
-              <ul class="cc nav navbar-nav">
-                <li><%= link_to 'top', root_path %></li>
-                <li><%= link_to 'マイページ', edit_owner_registration_path %></li>
+      <div class="owner-nav-main">
+              <ul class="owner-nav nav navbar-nav">
+                <div class="owner-logo"><li><%= link_to 'JapanStreet', root_path, class: 'link_color_owner' %></li><div class="owner-name"><li><%= "#{current_owner.name}" %>さま</li></div></div>
+                <div class="owner-menu-box">
+                  <div class="owner-menu"><li><%= link_to 'マイページ', edit_owner_registration_path, class: 'link_color_owner' %></li></div>
 <% if @owner.stores.present? %>
-                <li><%= link_to '投稿', new_store_post_path(@owner.stores.first.id) %></li>
+                  <div class="owner-menu"><li><%= link_to '投稿', new_store_post_path(@owner.stores.first.id), class: 'link_color_owner' %></li></div>
 <% end %>
-                <li><%= link_to 'メッセージ', conversations_path %></li>
-                <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete  %></li>
-                <li><%= "#{current_owner.name}" %>さま</li>
+                  <div class="owner-menu"><li><%= link_to 'メッセージ', conversations_path, class: 'link_color_owner' %></li></div>
+                  <div class="owner-menu"><li><%= link_to 'ログアウト', destroy_owner_session_path, class: 'link_color_owner', method: :delete  %></li></div>
+                </div>
               </ul>
+      </div>
 		</nav>
 
 <!-- どちらもログインしていない -->
 <% else %>
-		<nav>
-              <ul class="nav navbar-nav">
-                <li><%= link_to 'ABOUT', starts_about_path %></li>
-                <li><%= link_to 'TOP', root_path %></li>
-                <li><%= link_to 'ユーザー新規登録', new_customer_registration_path %></li>
-                <li><%= link_to 'ユーザーログイン', new_customer_session_path %></li>
-                <li><%= link_to '店主新規登録', new_owner_registration_path %></li>
-                <li><%= link_to '店主ログイン', new_owner_session_path %></li>
+<div class="header sticky-top">
+      <nav class="navbar navbar-inverse">
+              <ul class="block nav navbar-nav">
+                <div class="logo"><%= link_to 'JapanStreet', root_path, class: 'link_color_nav' %></div>
+                <div class="menu-brank"></div>
+                <div class="about"><li><%= link_to 'ABOUT', starts_about_path, class: 'link_color_nav' %></li></div>
+                <div class="menu">
+                <li><%= link_to 'ログイン', new_customer_session_path, class: 'link_color_nav' %></li></div>
+                <div class="menu"><li><%= link_to '店主ログイン', new_owner_session_path, class: 'link_color_nav' %></li></div></div>
+                </div>
               </ul>
-		</nav>
+      </nav>
+  </div>
 <% end %>
 <%#= @owner.stores.store_name %>
 <%#= @owner.stores.first.store_name %>
