@@ -1,14 +1,18 @@
-<h1>Stores#index</h1>
-<p>店主一覧はこちらトップページね</p>
+<div class="store-box-itme">
 	<div class="store-row">
 			<% @stores.each do |store| %>
 			<div class="store-item">
-				<div><%= attachment_image_tag store, :image,:fill,510,319, fallback: "no_image.jpg",size:'510x319' %></div>
-				<div><%= store.owner.nickname %></div>
-				<div><%= store.store_name %></div>
-				<div><%= store.good %></div>
-				<div><%= store.introduction %></div>
-				<div><%= link_to '詳細へ', store_path(store) %></div>
+				<div class="store-image">
+					<%= link_to store_path(store), class: 'link_color' do %>
+						<%= attachment_image_tag store, :image,:fill,510,319, fallback: "no_image.jpg",size:'510x319' %>
+				</div>
+				<div class="store-text">
+				<div class="nickname"><%= store.owner.nickname %></div>
+				<div class="text-good"><%= store.store_category %></div>
+				<div class="text-good"><%= store.good %></div>
+				</div>
+				<% end %>
 			</div>
 			<% end %>
 	</div>
+</div>

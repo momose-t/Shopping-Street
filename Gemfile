@@ -70,3 +70,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'faker'
+
+group :production do
+  gem 'mysql2'
+end

@@ -2,33 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.store-box{
+	width: 100%;
+}
+.store-box-itme{
+	background-color: #e9eaee;
+	margin: 100px 0 0 170px;
 
+}
 .store-row{
 	flex-wrap: wrap;
-	width: 100%;
 	display: flex;
 }
 .store-item{
-	background-color: #e6cde3;
+/*	background-color: #e6cde3;*/
 	flex-basis: 50%;
 	margin-top: 10px;
 	text-align: center;
 }
 .store-item:nth-child(2n){
-	background-color: #eebbcb;
-	margin-top: 50px;
+/*	background-color: #eebbcb;*/
+	margin-top: 70px;
 	justify-content: flex-end;
 }
+.store-show-main{
+	background-color: #e9eaee;
+	width: 100%;
+}
 .store-show{
-	background-color: #c1e4e9;
+	background-color: #e9eaee;
 	text-align: center;
+	padding: 50px;
 }
 .post-box{
-	background-color: #eaf4fc;
+	background-color: #e9eaee;
 	display: flex;
+	padding: 80px 40px;
+	margin: 0 70px;
 }
 .post-item{
-	background-color: #c37854;
+	background-color: #e9eaee;
 	text-align: center;
 	flex-wrap:wrap;
+	width: 100%;
+}
+.store-image {
+	transition-duration: 0.5s;
+	color: #252525;
+}
+.store-image:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  color: #383636;
+}
+.store-text{
+	font-family: 'TsukuARdGothic-Regular','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+	color: #3471a1;
+	&:hover {
+	color: #9d9981;
+	}
+
+}
+.nickname{
+	font-size: 35px;
+	display: inline-block;
+	border-bottom: 2px solid;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+.text-good{
+	font-size: 20px;
+}
+.store-show-text{
+	color: #09558c;
+}
+.link_color{
+	text-decoration:none;
+}
+.show-nickname{
+	font-size: 35px;
+}
+.store-show-main{
+	margin-top: 80px;
+}
+.store-name{
+	font-size: 20px;
+	display: inline-block;
+	border-bottom: 2px solid;
+}
+.post-text{
+	color: #09558c;
 }
