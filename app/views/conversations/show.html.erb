@@ -1,20 +1,19 @@
-<h1>Conversations#show</h1>
 <!-- やりとりしているメッセージの一覧 -->
 <!-- ownerがログインしていたら -->
 <% if owner_signed_in? %>
-<div class="conversation-people"><%= @conversation.customer.nickname %>とやりとり中</div>
+<div class="message-label"><%= @conversation.customer.nickname %>とやりとり中</div>
 	<% @messages.each do |m| %>
 		<% if m.is_customer %>
-			<div class="left-side message-item"><%= @conversation.customer.nickname %><%= m.message %></div>
+			<div class="message-item-box"><div class="left-side message-item"><strong><%= @conversation.customer.nickname %></strong><%= m.message %></div>
 		<% else %>
-			<div class="right-side message-item"><%= m.message %></div>
+			<div class="right-side message-item"><%= m.message %></div></div>
 		<% end %>
 	<% end %>
 <% end %>
 
 <!-- customerがログインしていたら -->
 <% if customer_signed_in? %>
-<div class="conversation-people"><%= @conversation.owner.nickname %>とやりとりしていますよ！！</div>
+<div class="message-label"><%= @conversation.owner.nickname %>とやりとりしていますよ！！</div>
 	<% @messages.each do |m| %>
 		<% if m.is_customer %>
 			<div class="right-side message-item"><%= m.message %></div>
@@ -27,8 +26,12 @@
 
 
 <!-- メッセージ作成 -->
-<%= form_for @conversation.messages.new , url: conversation_messages_path(@conversation.id) do |f| %>
-<%= f.text_field :message %>
-<%= f.submit "送信" %>
-<% end %>
+<div class="message-input-box">
+	<div class="message-input-box-item">
+		<%= form_for @conversation.messages.new , url: conversation_messages_path(@conversation.id) do |f| %>
+		<%= f.text_field :message %>
+		<%= f.submit "送信" %>
+		<% end %>
+	</div>
+</div>
 

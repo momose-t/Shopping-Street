@@ -1,12 +1,11 @@
-<h1>Stores#show</h1>
-<p>お店の詳細紹介</p>
-
-<div class="store-show">
-	<div><%= attachment_image_tag @store, :image,:fill,400,400, fallback: "no_image.jpg",size:'400x400' %></div>
-	<div><%= @store.owner.nickname %></div>
-	<div><%= @store.store_name %></div>
-	<div><%= @store.good %></div>
-	<div><%= @store.introduction %></div>
+<div class="store-show-main">
+<div class="store-show store-show-text">
+	<div><%= attachment_image_tag @store, :image,:fill,510,319, fallback: "no_image.jpg",size:'510x319' %></div>
+	<div class="show-nickname"><%= @store.owner.nickname %></div>
+	<div class="store-name"><%= @store.store_name %></div>
+	<div class="text-good"><%= @store.store_category %></div>
+	<div class="text-good"><%= @store.good %></div>
+	<div class="text-good"><%= @store.introduction %></div>
 	<% if customer_signed_in? %>
 		<!-- ownerのidがほしい -->
 		<%= form_tag("/conversations", method: "post") do %> <!-- conversation create にデータを送る -->
@@ -15,12 +14,14 @@
 		<% end %>
 	<% end %>
 </div>
+<hr size="0.5" color="#9d9981">
 <!-- 店主の投稿一覧 -->
 	<div class="post-box">
 		<% @posts.each do |post|%>
 		<div class="post-item">
-			<div><%= attachment_image_tag post, :image, :fill,500,300,fallback:"no_image.jpg",size:'500x300'%></div>
-			<span><%= post.comment %></span>
+			<div><%= attachment_image_tag post, :image, :fill,360,300,fallback:"no_image.jpg",size:'369x300'%></div>
+			<span class="post-text"><%= post.comment %></span>
 		</div>
 		<% end %>
 	</div>
+</div>

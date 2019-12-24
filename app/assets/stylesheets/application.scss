@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'messages';
+@import 'stores';
+@import 'conversations';
+@import 'starts';
+@import 'posts';
+
+/*header*/
+header{
+	color: red;
+	font-size: 16px;
+}
+.bb{
+	background-color: lightblue;
+	width: 100%;
+	height: 300px;
+}
+.cc{
+	background-color: #cca6bf;
+}
+.link_color{
+	text-decoration:none;
+}
+ul {
+	list-style: none;
+}
+.block{
+	display: flex;
+	font-style: italic;
+	padding-top: 20px;
+}
+.navbar {
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .3rem;
+}
+.logo{
+	font-size: 20px;
+	flex-grow:2;
+}
+.about{
+	flex-grow:2;
+	text-align: right;
+
+}
+.menu{
+	flex-grow:1;
+	text-align: right;
+	padding-right: 20px;
+	color: #e6cde3;
+}
+.menu-brank{
+	flex-grow:7;
+}
+.logo{
+	color: #e6cde3;
+	&:hover {
+	color: blue;
+	}
+}
+.link_color_nav{
+	text-decoration:none;
+	color: #09558c;
+	padding-top: 10px;
+}
+.owner-nav-main{
+	background-color: #3471a1;
+	height: 150px;
+}
+.owner-nav{
+	display: flex;
+	padding-top: 50px;
+
+}
+.owner-logo{
+	flex-grow:1;
+	font-size: 30px;
+}
+.owner-name{
+	margin-top: 8px;
+	font-size: 18px;
+	color: #f9f7f0;
+}
+.owner-menu-box{
+	flex-grow:1;
+	margin-top: 20px;
+	margin-bottom: 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+.owner-menu{
+	flex-basis:15%;
+	text-align: center;
+	font-size: 16px;
+}
+.link_color_owner{
+	text-decoration:none;
+	color: #f9f7f0;
+	padding-top: 20px;
+}
+body{
+	font-family: 'TsukuARdGothic-Regular','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}

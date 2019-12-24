@@ -5,7 +5,7 @@
 <!-- ownerがログインしていたら -->
 <% if owner_signed_in? %>
 <%= @conversation.customer.nickname %>
-	<% @messages.each do |m| %>
+	<div class="message-label"><% @messages.each do |m| %></div>
 		<% if m.is_customer %>
 			<div class="left-side message-item"><%= m.message %></div>
 		<% else %>
@@ -17,7 +17,7 @@
 <!-- customerがログインしていたら -->
 <% if customer_signed_in? %>
 <%= @conversation.owner.nickname %>
-	<% @messages.each do |m| %>
+	<div class="message-label"><% @messages.each do |m| %></div>
 		<% if m.is_customer %>
 			<div class="right-side message-item"><%= m.message %></div>
 		<% else %>
