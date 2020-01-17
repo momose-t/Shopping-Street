@@ -19,12 +19,12 @@
 @import 'conversations';
 @import 'starts';
 @import 'posts';
-
-/*header*/
-header{
-	color: red;
-	font-size: 16px;
+body{
+	h{
+		color: #333230;
+	}
 }
+/*header*/
 .bb{
 	background-color: #cca6bf;
 	width: 100%;
@@ -80,8 +80,20 @@ ul {
 }
 .link_color_nav{
 	text-decoration:none;
-	color: #09558c;
+	color: #333230;
 	padding-top: 10px;
+}
+.link_color_start{
+	text-decoration:none;
+	color: #333230;
+	background: linear-gradient(transparent 60%, #cdd9db 10%);
+	padding-top: 10px;
+	font-size: 20px;
+		&:hover {
+	color: #3471a1;
+/*	border-bottom: 1px solid;*/
+	background: linear-gradient(transparent 60%, #5b87ad 60%);
+	}
 }
 .owner-nav-main{
 	background-color: #3471a1;
@@ -121,4 +133,27 @@ ul {
 }
 body{
 	font-family: 'TsukuARdGothic-Regular','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+/*start*/
+.characteristic{
+	display: flex;
+}
+.characteristic-box{
+	margin-top: 150px;
+	margin-bottom: 150px;
+}
+.how-start{
+	margin-top: 150px;
+	margin-bottom: 150px;
+}
+.start-concept{
+	display: flex;
+	margin:100px 100px 100px 100px;
+align-items: center;
+}
+.start-main-box{
+	margin-left: 150px;
+}
+.start-main{
+	
 }

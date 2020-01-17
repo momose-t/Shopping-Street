@@ -1,20 +1,27 @@
 <div class="store-show-main">
-<div class="store-show store-show-text">
-	<div><%= attachment_image_tag @store, :image,:fill,510,319, fallback: "no_image.jpg",size:'510x319' %></div>
-	<div class="show-nickname"><%= @store.owner.nickname %></div>
-	<div class="store-name"><%= @store.store_name %></div>
-	<div class="text-good"><%= @store.store_category %></div>
-	<div class="text-good"><%= @store.good %></div>
-	<div class="text-good"><%= @store.introduction %></div>
-	<% if customer_signed_in? %>
-		<!-- ownerのidがほしい -->
-		<%= form_tag("/conversations", method: "post") do %> <!-- conversation create にデータを送る -->
-		<%= hidden_field_tag :owner_id, @store.owner.id%><!-- 使用者には見えないデータ（ここでいう@store.owner.idをowner_id → 名前はなんでもいい）を送る　 -->
-		<%= submit_tag("メールする")%>
+<div class="store-show-box">
+		
+	<div class="store-show-box-item store-show-text">
+		<hr size="0.5" color="#d8d8d8">
+		<div class="text-good">owner</div>
+		<div class="show-nickname"><%= @store.owner.nickname %></div>
+		<div class="text-good">store</div>
+		<div class="show-nickname"><%= @store.store_name %></div>
+		<div class="text-good"><%= @store.store_category %></div>
+		<div class="text-good"><%= @store.good %></div>
+		<div class="text-good"><%= @store.introduction %></div>
+			<% if customer_signed_in? %>
+			<!-- ownerのidがほしい -->
+			<%= form_tag("/conversations", method: "post") do %> <!-- conversation create にデータを送る -->
+			<%= hidden_field_tag :owner_id, @store.owner.id%><!-- 使用者には見えないデータ（ここでいう@store.owner.idをowner_id → 名前はなんでもいい）を送る　 -->
+			<%= submit_tag("Contact to #{@store.owner.nickname}")%>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
+
+	<div class="store-image-box"><%= attachment_image_tag @store, :image,:fill,960,720, fallback: "no_image.jpg",size:'960x720' %></div>
 </div>
-<hr size="0.5" color="#9d9981">
+<hr size="0.5" color="#d8d8d8">
 <!-- 店主の投稿一覧 -->
 	<div class="post-box">
 		<% @posts.each do |post|%>

@@ -7,8 +7,8 @@
 						<%= attachment_image_tag store, :image,:fill,510,319, fallback: "no_image.jpg",size:'510x319' %>
 				</div>
 				<div class="store-text">
-				<div class="nickname"><%= store.owner.nickname %></div>
 				<div class="text-good"><%= store.store_category %></div>
+				<div class="nickname"><%= store.owner.nickname %></div>
 				<div class="text-good"><%= store.good %></div>
 				</div>
 				<% end %>

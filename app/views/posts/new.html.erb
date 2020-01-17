@@ -1,8 +1,9 @@
 <!-- 投稿作成 -->
 <div class="post-main">
 	<div class="post-box-new">
+		<div class="post-image">image</div>
 	<%= form_for @post, url: store_posts_path do |f| %>
-		<div><%= f.attachment_field :image %></div>
+		<div class=""><%= f.attachment_field :image %></div>
 		<div><%= f.text_field :comment %></div>
 		<div><%= f.submit "投稿" %></div>
 	<% end %>

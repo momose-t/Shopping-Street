@@ -13,12 +13,23 @@
 
 	<!-- 客がログインしている場合 -->
 	<% else customer_signed_in? %>
+<div class="vv">
+	<div class="owner-icon-box">
+		<% @store.each do |store|%>
+			<div class="owner-icon"><%= attachment_image_tag store, :image, :fill,360,300,fallback:"no_image.jpg",size:'87x87'%></div>
+		<% end %>
+	</div>
+	<div class="ii">
 		<% @conversation.each do |conversation|%>
 			<% if @owner_ids.include?(conversation.owner_id) %>
-				<div class="conversation-item"><%= conversation.owner.nickname %>
+				<div class="conversation-item">
+					<%= conversation.owner.nickname %>
 				<%= link_to 'メッセージする',conversation_path(conversation), class: 'link_color_message' %></div>
 			<% end %>
 		<% end %>
+	</div>
 	<% end %>
 	</div>
 </div>
+</div>
+
