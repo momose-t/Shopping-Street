@@ -1,26 +1,22 @@
 <!-- 客がログインしているか -->
 <% if customer_signed_in? %>
-<div class="header sticky-top">
-      <nav class="navbar navbar-inverse">
-              <ul class="block nav navbar-nav">
-                <div class="logo"><%= link_to 'もものん商店街', root_path, class: 'link_color_nav' %></div>
-                <div class="menu-brank"></div>
-                <div class="about"><li><%= link_to 'マイページ', edit_customer_registration_path, class: 'link_color_nav' %></li></div>
-                <div class="menu">
-                <li><li><%= link_to 'メッセージ', conversations_path, class: 'link_color_nav' %></li></div>
-                <div class="menu"><li><%= link_to 'ログアウト', destroy_customer_session_path, class: 'link_color_nav', method: :delete  %></li></div></div>
-                </div>
+        <nav class="navbar navbar-inverse nav.sticky-top">
+              <ul class="nav navbar-nav">
+                <div class="logo"><li><%= link_to 'JapanStreet', root_path, class: 'link_color' %></li></div>
+                <li><%= link_to 'マイページ', edit_customer_registration_path, class: 'link_color' %></li>
+                <li><%= link_to 'メッセージ', conversations_path, class: 'link_color' %></li>
+                <li><%= link_to 'ログアウト', destroy_customer_session_path, class: 'link_color', method: :delete  %></li>
               </ul>
-            <div><%= attachment_image_tag current_customer, :image, :fill,360,300,fallback:"no_image.jpg",size:'50x50'%></div>
+            </div>
             <div><%= "#{current_customer.nickname}" %>さま</div>
-      </nav>
-  </div>
+          </div>
+        </nav>
 <!-- 店主がログインしてるか -->
 <% elsif owner_signed_in? %>
 		<nav>
       <div class="owner-nav-main">
               <ul class="owner-nav nav navbar-nav">
-                <div class="owner-logo"><li><%= link_to 'もものん商店街', root_path, class: 'link_color_owner' %></li><div class="owner-name"><li><%= "#{current_owner.name}" %>さま</li></div></div>
+                <div class="owner-logo"><li><%= link_to 'JapanStreet', root_path, class: 'link_color_owner' %></li><div class="owner-name"><li><%= "#{current_owner.name}" %>さま</li></div></div>
                 <div class="owner-menu-box">
                   <div class="owner-menu"><li><%= link_to 'マイページ', edit_owner_registration_path, class: 'link_color_owner' %></li></div>
 <% if @owner.stores.present? %>
@@ -38,7 +34,7 @@
 <div class="header sticky-top">
       <nav class="navbar navbar-inverse">
               <ul class="block nav navbar-nav">
-                <div class="logo"><%= link_to 'もものん商店街', root_path, class: 'link_color_nav' %></div>
+                <div class="logo"><%= link_to 'JapanStreet', root_path, class: 'link_color_nav' %></div>
                 <div class="menu-brank"></div>
                 <div class="about"><li><%= link_to 'ABOUT', starts_about_path, class: 'link_color_nav' %></li></div>
                 <div class="menu">

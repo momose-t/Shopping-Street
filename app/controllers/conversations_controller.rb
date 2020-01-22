@@ -49,11 +49,6 @@ class ConversationsController < ApplicationController
 	        @conversation.each do |r|
 	          	@owner_ids << r.owner_id
 	        end
-          @store = Store.where(owner_id: @owner_ids)
-          @store_ids = []
-          @store.each do |r|
-            @store_ids << r.image_id
-          end
 	  	end
   end
 end

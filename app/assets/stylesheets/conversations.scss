@@ -9,6 +9,7 @@
 }
 .conversation-item{
 	height: 50px;
+	margin-left: 200px;
 	font-size: 30px;
 	border: solid 1px #a1a7ad;
 	padding: 20px 200px 20px 20px;
@@ -21,21 +22,4 @@
 	color: #606060;
 	font-size: 20px;
 	padding-left: 20px;
-}
-.owner-icon-box{
-	display: flex;
-	flex-direction: column;
-
-}
-.vv{
-	display: flex;
-	flex-direction: row;
-	margin-left: 200px;
-}
-.owner-icon{
-
-}
-
-.ii{
-
 }
