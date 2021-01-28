@@ -1,24 +1,9 @@
-# README
+# もものん商店街
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+商店街の店主を紹介しています。ユーザーは気になる店主を見つけたら、店主にメッセージを送ることができます。
 
-Things you may want to cover:
+* 使い方（ユーザー側）
 
-* Ruby version
+* 使い方（店主側）
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
